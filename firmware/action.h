@@ -1,7 +1,7 @@
 enum ACTION
 {
   none,
-  fold_forefinger,
+  fold_Indexfinger,
   fold_midfinger,
   fold_ringfinger,
   fold_tinyfinger,

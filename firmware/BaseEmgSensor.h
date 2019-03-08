@@ -9,7 +9,7 @@ class BaseEMGSensor : public ISensor
     const int BAUD_RATE = 115200;
     const int DELAY_MS  = 10;
 
-    float mThresold = 0.0f;
+    float mThreshold = 0.0f;
     float mPeak     = 0.0f;
 
     void start()
@@ -23,14 +23,14 @@ class BaseEMGSensor : public ISensor
       float values[WINDOW_SIZE];
       double sum = 0.0f;
 
-      for(int i=0; i < WINDOW_SIZE; ++i)
+      for(int i=0; i < WINDOW_SIZE; ++i)  //to find the average of emg values at rest
       {
         values[i] = analogRead(EMG_PIN);
         sum += values[i];
         delay(DELAY_MS);
       }
 
-      mThresold = sum/WINDOW_SIZE;
+      mThreshold = sum/WINDOW_SIZE;
     }
 
     void calibrateStep2()
@@ -38,7 +38,7 @@ class BaseEMGSensor : public ISensor
       //Locals
       float peaks[WINDOW_SIZE];
 
-      for(int i=0; i<WINDOW_SIZE; ++i)
+      for(int i=0; i<WINDOW_SIZE; ++i)   //to find the peak emg value
       {
         peaks[i] = analogRead(EMG_PIN);
         mPeak = peaks[i] > mPeak ? peaks[i] : mPeak;
@@ -49,12 +49,12 @@ class BaseEMGSensor : public ISensor
 
     ACTION get_action()
     {
-      
+
     }
 
     void finish()
     {
-      
+
     }
-    
+
 };
