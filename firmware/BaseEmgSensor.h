@@ -5,7 +5,7 @@
 #include "Action.h"
 
 #define WINDOW_SIZE (100)
-#define BAUD_RATE (115200)
+#define BAUD_RATE (9600)
 #define DELAY_MS (10)
 
 class BaseEMGSensor : public ISensor
@@ -21,7 +21,8 @@ class BaseEMGSensor : public ISensor
       void start()
       {
         Serial.begin(BAUD_RATE);
-      }
+        int sensorValue = analogRead(A0);
+      } 
 
       void calibrateStep1()
       {
