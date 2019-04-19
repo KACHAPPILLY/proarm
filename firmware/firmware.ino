@@ -17,6 +17,7 @@ void setup() {
   sensor->start();
   actuator->start();
   actuator->calibrate();
+
 }
 
 void loop()
@@ -25,22 +26,30 @@ void loop()
 if(Serial.available()>0){
     state = Serial.read();
   }
- 
-  if(state == 'a')
+
+  if(state == 'a')   //to control via bluetooth command
  { Serial.println("threshold.... ");
   sensor->calibrateStep1();
    Serial.println("threshold is set");
-  
- }
-   
- if(state == 'b') 
- {
-   Serial.println("peak ......"); 
-   sensor->calibrateStep2();
-   Serial.println("peak is set:"); 
+
  }
 
-  
+ if(state == 'b')
+ {
+   Serial.println("peak ......");
+   sensor->calibrateStep2();
+   Serial.println("peak is set:");
+ }
+ sensor-> meanabsolutevalue();
+ sensor-> meanvalueslope();
+ sensor-> willisonamplitude();
+ sensor-> variance();
+ sensor-> zerocrossing();
+ sensor-> waveformlength();
+ sensor-> slopesignchange();
+
+
+
   Action action = NONE;
 
   action = sensor->get_action();

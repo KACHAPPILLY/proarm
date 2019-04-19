@@ -9,7 +9,7 @@ class ISensor
 		virtual void start()=0;
 		virtual void calibrateStep1()=0;
 		virtual void calibrateStep2()=0;
-		virtual void meanabsolutevalue()=0;
+	  virtual void meanabsolutevalue()=0;
 		virtual void meanvalueslope()=0;
 		virtual void willisonamplitude()=0;
 		virtual void variance()=0;
