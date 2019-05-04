@@ -23,6 +23,16 @@ class MotorActuator : public IActuator
     servo4.write(val);
     servo5.write(val);
   }
+  void PointIndexFinger(int val)
+  {
+    servo1.write(0);
+    servo2.write(val);
+    servo3.write(val);
+    servo4.write(val);
+    servo5.write(val);
+
+
+  }
 
   public:
     void start()
@@ -58,6 +68,9 @@ class MotorActuator : public IActuator
           break;
         case OPEN_ALL_FINGERS:
           SetAllServos(MIN_POSITION);
+          break;
+        case POINT_INDEX_FINGER:
+        PointIndexFinger(MAX_POSITION);
           break;
         default:
           break;
