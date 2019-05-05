@@ -9,7 +9,7 @@
 
 
 ISensor   *sensor   = new BaseEMGSensor();
-ISensor   *sensor2   = new Myoware();
+ISensor   *sensor2  = new Myoware();
 IActuator *actuator = new MotorActuator();
 
 char state =0;
